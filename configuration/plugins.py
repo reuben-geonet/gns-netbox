@@ -3,6 +3,21 @@ PLUGINS = [
 	"netbox_branching"
 ]
 
+PLUGINS_CONFIG = {
+    "netbox_inventory": {
+        "stored_additional_status_names": [
+            "retired",
+            "repair",
+        ],
+    },
+}
+
+FIELD_CHOICES = {
+    "netbox_inventory.Asset.status+": (
+        ("repair", "In Repair", "orange"),
+    ),
+}
+
 from netbox_branching.utilities import DynamicSchemaDict
 
 DATABASES = DynamicSchemaDict({
